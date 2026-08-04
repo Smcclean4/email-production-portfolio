@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f1e6;
+  --paper-line: #e4dcc8;
+  --ink: #1f231f;
+  --ink-soft: #4a4b42;
+  --gray: #726d5e;
+  --crimson: #b13328;
+  --crimson-soft: #c9564a;
+  --teal: #2a6f6a;
+  --teal-soft: #dfe9e6;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-line: var(--paper-line);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-gray: var(--gray);
+  --color-crimson: var(--crimson);
+  --color-crimson-soft: var(--crimson-soft);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jbmono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  background-image: linear-gradient(var(--paper-line) 1px, transparent 1px);
+  background-size: 100% 2.1rem;
+  background-attachment: local;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.mono-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.08em;
+}
+
+.signature-path {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: sign 2.1s 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.stamp {
+  transform: rotate(-6deg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 2px;
+}
